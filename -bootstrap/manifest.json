@@ -1,0 +1,12 @@
+{
+    "Image":"plugin",
+    "Name":"Carousel",
+    "Description":"To add Carousel modules",
+    "Access": 900000000,
+    "Reference": "aseqbase/carousel",
+    "PreInstalls": [
+        "aseqbase/bootstrap"
+    ],
+    "PostInstalls": [],
+    "MetaData":[]
+}

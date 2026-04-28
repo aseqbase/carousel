@@ -1,5 +1,5 @@
 {
-    "Image":"plugin",
+    "Image":"image",
     "Name":"Carousel",
     "Description":"To add Carousel modules",
     "Access": 900000000,

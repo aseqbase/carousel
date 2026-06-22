@@ -2,6 +2,8 @@
 namespace MiMFa\Module;
 use MiMFa\Library\Convert;
 use MiMFa\Library\Struct;
+use Override;
+
 module("Collection");
 /**
  * To show everythings as a slideshow
@@ -18,6 +20,10 @@ class Carousel extends Collection
 	public $PreviousLabel = "<span class='carousel-control-prev-icon'></span>";
 	public $NextLabel = "<span class='carousel-control-next-icon'></span>";
 
+	/**
+	 * The animation type, (for example "slide")
+	 * @var string
+	 */
 	public $Animation = "slide";
 	public $CaptionBackColor = null;
 	public $CaptionForeColor = null;
@@ -41,6 +47,13 @@ class Carousel extends Collection
 		$this["data-bs-ride"] = "carousel";
 		$this->CaptionBackColor = $this->CaptionBackColor ?? "var(--back-color)";
 		$this->CaptionForeColor = $this->CaptionForeColor ?? "var(--fore-color)";
+	}
+
+	#[Override]
+	function BeforeHandle()
+	{
+		if($this->Animation && strpos($this->Class, $this->Animation) < 0) $this->Class .=" ". $this->Animation;
+		return parent::BeforeHandle();
 	}
 
 	public function GetStyle()
